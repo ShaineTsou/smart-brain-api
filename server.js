@@ -8,6 +8,7 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+const { PORT } = process.env;
 const db = knex({
     client: 'pg',
     connection: {
@@ -27,12 +28,6 @@ app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) }
 app.put('/image', (req, res) => { image.handleImage(req, res, db) });
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) });
 
-app.listen(3000, () => {
-    console.log('app is running on port 3000');
+app.listen(PORT || 3000, () => {
+    console.log(`app is running on port ${ PORT }`);
 })
-
-/* To compare user's entry with all the other user's entry:
-db.with('user_entry', (qb) => {
-    qb.select('entries').from('users').where('id', id)
-  }).count('entries').where('entries', '>', 'user_entry').from('users')
-*/
