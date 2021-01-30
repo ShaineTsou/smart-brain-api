@@ -8,14 +8,12 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
-const { PORT } = process.env;
+const { PORT, DATABASE_URL } = process.env;
 const db = knex({
     client: 'pg',
     connection: {
-        host : '127.0.0.1',
-        user : 'shainetsou',
-        password : '',
-        database : 'smart-brain'
+        connectionString: DATABASE_URL,
+        ssl: true
     }
 });
 app.use(express.json());
