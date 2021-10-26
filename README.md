@@ -1,5 +1,3 @@
-# SmartBrainApi
+# Smart Brain API
 
-Final project for [ZTM course](https://www.udemy.com/course/the-complete-web-developer-zero-to-mastery/)
-
-This repository is used to deploy to Heroku.
+Back end code of a full-stack face detection app, [Smart Brain](https://github.com/ShaineTsou/smart-brain), built using React, Redux, Node.js, Express and PostgreSQL
